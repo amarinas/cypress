@@ -18,4 +18,18 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+
+  //clear database before each test
+  on("task", {
+    "clear:db": () => {
+      return clearDatabase();
+    },
+  });
+
+  //seed database
+  on("task", {
+    "seed:db": (data) => {
+      return seedDatabase(data);
+    },
+  });
+};

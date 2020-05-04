@@ -28,3 +28,13 @@ Cypress.Commands.add("login", (email, password) => {
   cy.get('input[name="password]').type(password);
   cy.get("login-button").click();
 });
+
+//custom command
+Cypress.Commands.add("login", (email, password) => {
+  return cy.window().then((win) => {
+    return win.applicationCache.$store.dispatch("login", {
+      email: "test@cypress.io",
+      password: "1234",
+    });
+  });
+});

@@ -5,9 +5,6 @@ describe("First Test", function () {
     cy.visit("http://google.com");
     cy.get(".gLFyf").type("cat pictures");
 
-    cy.(
-      ":nth-child(1) > .jKWzZXdEJWi__suggestions-inner-container > .sbtc > .sbl1 > span"
-    ).click;
     cy.wait(2000);
   });
 });
